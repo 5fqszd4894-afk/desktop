@@ -1,0 +1,11 @@
+from huggingface_hub import hf_hub_download
+import pandas as pd
+
+# Descarga del archivo desde Hugging Face
+dataset_path = hf_hub_download(repo_id="allenai/real-toxicity-prompts", filename="prompts.jsonl")
+
+# Cargar con pandas
+df = pd.read_json(dataset_path, lines=True)
+
+# Verifica los datos cargados
+print(df.head())
